@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var loginSchema = new Schema({
   
- studentID:integer ,
-  password:password
+ studentID:Number ,
+  password:{type:String,unique:true}
 });
 
 module.exports=mongoose.model('login',loginSchema);

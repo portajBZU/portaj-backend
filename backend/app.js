@@ -4,10 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require("mongoose");
-var indexRouter = require('./routes/index');
 
+var indexRouter = require('./routes/index');
 var studentsRouter = require('./routes/students');
 var templatesRouter = require('./routes/tempalates');
+var signupController = require('./routes/signup');
+var loginController = require('./routes/login');
+
 var app = express();
 mongoose.connect("mongodb://localhost:27017/gradProjDB", { 
    useCreateIndex: true, useNewUrlParser: true,useUnifiedTopology:true })
@@ -23,6 +26,14 @@ mongoose.connect("mongodb://localhost:27017/gradProjDB", {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+app.all("/*", function(req, res, next){
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+  next();
+});
+
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -33,6 +44,8 @@ app.use('/', indexRouter);
 
  app.use('/students', studentsRouter);
  app.use('/templates', templatesRouter);
+ app.use('/signup', signupController);
+ app.use('/login', loginController);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
