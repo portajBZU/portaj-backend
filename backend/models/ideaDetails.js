@@ -4,7 +4,7 @@ var ideaDetailsSchema = new Schema({
   
  ideaTitle:String ,
   ideaDiscription:String,
-  supervisorID :integer,
+  supervisorID :Number,
 });
 
 module.exports=mongoose.model('ideaDetails',ideaDetailsSchema);
