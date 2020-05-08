@@ -22,5 +22,15 @@ router.post('/',function(req,res,next){
         res.send(idea);
     });
 });
+router.get('/', (req, res, next) => {
+    idea.find((err, docs) => {
+        if(!err) {
+            res.send(docs)
+            console.log(docs)
+        } else {
+            res.send("Error!");
+        }
 
+    })
+});
     module.exports=router;

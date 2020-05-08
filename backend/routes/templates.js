@@ -14,5 +14,16 @@ router.post('/',function(req,res,next){
         uploadTemplate(templateTitle,templateType,pathStored);
         res.send(body); 
         });
-    
+
+router.get('/', (req, res, next) => {
+        templates.find((err, docs) => {
+                if(!err) {
+                        res.send(docs)
+                        console.log(docs)
+                } else {
+                        res.send("Error!");
+                }
+
+        })
+});
         module.exports=router;
