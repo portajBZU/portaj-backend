@@ -22,5 +22,15 @@ router.post('/',function(req,res,next){
             res.send(supervisor);
         });
     });
+router.get('/', (req, res, next) => {
+    supervisor.find((err, docs) => {
+        if(!err) {
+            res.send(docs)
+            console.log(docs)
+        } else {
+            res.send("Error!");
+        }
 
+    })
+});
     module.exports=router;

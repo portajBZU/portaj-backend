@@ -21,6 +21,15 @@ router.post('/',function(req,res,next){
         res.send(announcement); 
     });
 });
+router.get('/', (req, res, next) => {
+    announcement.find((err, docs) => {
+        if(!err) {
+            res.send(docs)
+            console.log(docs)
+        } else {
+            res.send("Error!");
+        }
 
+    })
+});
     module.exports=router;
-    

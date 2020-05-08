@@ -29,5 +29,15 @@ res.send(body);
      
 // });
 
+router.get('/', (req, res, next) => {
+    Students.find((err, docs) => {
+        if(!err) {
+            res.send(docs)
+            console.log(docs)
+        } else {
+            res.send("Error!");
+        }
 
+    })
+});
 module.exports=router;
