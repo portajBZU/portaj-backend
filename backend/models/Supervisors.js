@@ -5,7 +5,13 @@ var supervisorsSchema = new Schema({
 supervisorID:{type:Number},
   supervisorFirstName:String,
   supervisorLastName:String,
-  numberOfGroups:Number
+  numberOfGroups:Number,
+  registeredGroups: Number,
+  ideaList: [{
+    type: Schema.Types.ObjectID,
+    required: true,
+    ref: "ideaDetails "
+  }]
 });
 
 module.exports=mongoose.model('supervisors',supervisorsSchema);

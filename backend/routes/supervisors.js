@@ -12,7 +12,9 @@ router.post('/',function(req,res,next){
     var supervisorFirstName = body.supervisorFirstName;
     var supervisorLastName=body.supervisorLastName;
     var numberOfGroups=body.numberOfGroups;
-    addSupervisor(supervisorID,supervisorFirstName,supervisorLastName,numberOfGroups);
+    var registeredGroups = 0;
+    var ideaList = body.ideaList;
+    addSupervisor(supervisorID,supervisorFirstName,supervisorLastName,numberOfGroups, registeredGroups, ideaList);
     res.send(body); 
     });
 

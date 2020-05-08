@@ -1,10 +1,9 @@
 var Students=require('../models/Students');
-function addStudent (firstNAME , lastNAME , major,email){
+function addStudent (name, studentId, groupDetails){
     const student=new Students({
-        firstNAME:firstNAME,
-        lastNAME:lastNAME,
-        major:major,
-        email:email
+        name:name,
+        studentId:studentId,
+        groupDetails:groupDetails
     });
     student.save().then(function(data){
 console.log("student added");

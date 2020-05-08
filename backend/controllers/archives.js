@@ -1,7 +1,8 @@
 var Archives=require('../models/Archives');
-function addArchive (nameOFreport , yearOfthisArchive , supervisodBy){
+function addArchive (archiveType,archiveTitle , yearOfthisArchive , supervisodBy){
     const archive=new Archives({
-        nameOFreport:nameOFreport,
+        archiveType:archiveType,
+        archiveTitle:archiveTitle,
         yearOfthisArchive:yearOfthisArchive,
         supervisodBy:supervisodBy,
       

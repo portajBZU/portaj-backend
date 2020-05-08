@@ -1,10 +1,12 @@
 var Supervisors=require('../models/Supervisors');
-function addSupervisor (supervisorID , supervisorFirstName , supervisorLastName,numberOfGroups){
+function addSupervisor (supervisorID , supervisorFirstName , supervisorLastName,numberOfGroups,registeredGroups, ideaList){
     const supervisor=new Supervisors({
         supervisorID:supervisorID,
         supervisorFirstName:supervisorFirstName,
         supervisorLastName:supervisorLastName,
-        numberOfGroups:numberOfGroups
+        numberOfGroups:numberOfGroups,
+        registeredGroups: registeredGroups,
+        ideaList: ideaList
     });
     supervisor.save().then(function(data){
         console.log("supervisor added");

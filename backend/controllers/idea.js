@@ -1,10 +1,12 @@
 
 var idea=require('../models/ideaDetails');
-function addIdea (ideaTitle , ideaDiscription , supervisorID){
+function addIdea (ideadId, ideaTitle , ideaStatus, ideaDiscription , supervisorID){
     const ideaInfo=new idea({
+        ideadId: ideaId,
         ideaTitle:ideaTitle,
+        ideaStatus: ideaStatus,
         ideaDiscription:ideaDiscription,
-        supervisorID:supervisorID
+        supervisorID:supervisorID,
     });
     ideaInfo.save().then(function(data){
         console.log("idea added");

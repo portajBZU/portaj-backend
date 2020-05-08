@@ -16,6 +16,7 @@ var signupController = require('./routes/signup');
 var loginController = require('./routes/login');
 var listController = require('./routes/doclist');
 var groupController = require('./routes/groups');
+var search = require('./routes/search')
 
 var app = express();
 mongoose.connect("mongodb://localhost:27017/gradProjDB", {
@@ -28,6 +29,13 @@ mongoose.connect("mongodb://localhost:27017/gradProjDB", {
         "MongoDB connection error. Please make sure MongoDB is running. " + err
     );
 });
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+  
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -46,7 +54,7 @@ app.use('/announcement', announcementRouter);
 app.use('/freeTime', freeTimeFormRouter);
 app.use('/idea', ideaRouter);
 app.use('/templates', templatesRouter);
-
+app.use('/search', search)
 app.use('/signup', signupController);
 app.use('/login', loginController);
 app.use( '/list', listController);

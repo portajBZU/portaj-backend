@@ -7,11 +7,13 @@ var addArchive=require('../controllers/archives');
 router.post('/',function(req,res,next){
    
     var body=req.body;
-    var nameOFreport =body.nameOFreport;
+    var archiveType=body.archiveType;
+    var archiveTitle=body.archiveTitle;
+   
     var yearOfthisArchive = body.yearOfthisArchive;
     var supervisodBy=body.supervisodBy;
    
-    addArchive(nameOFreport,yearOfthisArchive,supervisodBy);
+    addArchive(archiveType,archiveTitle,yearOfthisArchive,supervisodBy);
     res.send(body); 
     });
 router.get('/', (req, res, next) => {

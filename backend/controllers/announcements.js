@@ -1,12 +1,11 @@
 var announcements=require('../models/coordinatorAnnouncement');
-function addAnnouncement (CoordinatorName , announcementID , Title,bodyMSG,dateOfAnnouncement,email,role){
+function addAnnouncement (CoordinatorName , announcementID , Title,details,dateOfAnnouncement,role){
     const announcement=new announcements({
         CoordinatorName:CoordinatorName,
         announcementID:announcementID,
         Title:Title,
-        bodyMSG:bodyMSG,
+        details:details,
         dateOfAnnouncement:dateOfAnnouncement,
-        email:email,
         role:role
     });
     announcement.save().then(function(data){

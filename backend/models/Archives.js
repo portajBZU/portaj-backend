@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var archivesSchema = new Schema({
-  nameOFreport:String,
+  archiveType:String,
+  archiveTitle:String,
   yearOfthisArchive:Date ,
   supervisodBy:String
 });

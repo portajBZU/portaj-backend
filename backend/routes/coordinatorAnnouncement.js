@@ -7,11 +7,10 @@ router.post('/',function(req,res,next){
     var CoordinatorName =body.CoordinatorName;
     var announcementID = body.announcementID;
     var Title=body.Title;
-    var bodyMSG=body.bodyMSG;
+    var details=body.details;
     var dateOfAnnouncement=body.dateOfAnnouncement;
-    var email=body.email;
     var role=body.role;
-    addAnnouncement(CoordinatorName,announcementID,Title,bodyMSG,dateOfAnnouncement,email,role);
+    addAnnouncement(CoordinatorName,announcementID,Title,details,dateOfAnnouncement,role);
     res.send(body); 
     });
 

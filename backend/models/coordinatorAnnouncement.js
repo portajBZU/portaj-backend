@@ -4,9 +4,8 @@ var announcment = new Schema({
   CoordinatorName:String,
   announcementID:{type:Number,unique:true},
   Title:String ,
-  bodyMSG:String,
+  details:String,
   dateOfAnnouncement :Date,
-  email:String,
   role:String
 
 });
