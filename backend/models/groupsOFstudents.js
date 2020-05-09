@@ -5,7 +5,8 @@ var groupOfstudentsSchema = new Schema({
   projectTitle:String ,
   firstStudentName:String,
   secondStudentName :String,
-  thirdStudentName:String
+  thirdStudentName:String,
+  //docList:
 });
 
 module.exports=mongoose.model('groupOfStudents',groupOfstudentsSchema);

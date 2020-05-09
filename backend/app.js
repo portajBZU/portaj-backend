@@ -16,7 +16,11 @@ var signupController = require('./routes/signup');
 var loginController = require('./routes/login');
 var listController = require('./routes/doclist');
 var groupController = require('./routes/groups');
-var search = require('./routes/search')
+var searchAPI = require('./routes/search');
+var uploadArchiveAPI = require('./routes/uploadArchive');
+var uploadTemplateAPI = require('./routes/uploadTemplate');
+var uploadDocumentAPI = require('./routes/uploadDocument');
+var downloadApi = require('./routes/download');
 
 var app = express();
 mongoose.connect("mongodb://localhost:27017/gradProjDB", {
@@ -54,7 +58,11 @@ app.use('/announcement', announcementRouter);
 app.use('/freeTime', freeTimeFormRouter);
 app.use('/idea', ideaRouter);
 app.use('/templates', templatesRouter);
-app.use('/search', search)
+app.use('/search', searchAPI);
+app.use('/uploadArchive', uploadArchiveAPI);
+app.use('/uploadTemplate', uploadTemplateAPI);
+app.use('/uploadDocument', uploadDocumentAPI);
+app.use('/download', downloadApi);
 app.use('/signup', signupController);
 app.use('/login', loginController);
 app.use( '/list', listController);

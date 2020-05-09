@@ -1,5 +1,5 @@
 {
-  "name": "myapp",
+  "name": "portaj-backend",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -7,12 +7,15 @@
     "begin": "nodemon app.js"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "bcrypt": "^4.0.1",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
     "express-ejs-layouts": "^2.5.0",
+    "express-fileupload": "^1.1.7-alpha.3",
     "express-session": "^1.17.1",
     "http-errors": "~1.6.3",
     "mongodb": "^3.5.5",
@@ -20,7 +23,10 @@
     "morgan": "~1.9.1",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "pug": "2.0.0-beta11"
+    "pug": "2.0.0-beta11",
+    "lodash": "^4.17.15",
+    "textract": "^2.5.0",
+    "word-extractor": "^0.3.0"
   },
   "devDependencies": {
     "bcryptjs": "^2.4.3",

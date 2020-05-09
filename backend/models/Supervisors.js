@@ -7,11 +7,11 @@ supervisorID:{type:Number},
   supervisorLastName:String,
   numberOfGroups:Number,
   registeredGroups: Number,
-  ideaList: [{
+  /*ideaList: [{
     type: Schema.Types.ObjectID,
     required: true,
     ref: "ideaDetails "
-  }]
+  }]*/
 });
 
 module.exports=mongoose.model('supervisors',supervisorsSchema);
