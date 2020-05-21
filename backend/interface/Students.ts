@@ -1,6 +1,6 @@
 export interface Students {
-    firstNAME:String,
-    lastNAME:String,
-    major:String,
+    name: string,
+    studentId: number,
+    groupDetails: string,
     email: String
 }

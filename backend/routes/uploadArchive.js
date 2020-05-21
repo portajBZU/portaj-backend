@@ -69,7 +69,17 @@ router.post('/', async (req, res) => {
         res.status(500).send(err);
     }
 });
+router.get('/get', (req, res, next) => {
+    archive.find((err, docs) => {
+        if(!err) {
+            res.send(docs)
+            console.log(docs)
+        } else {
+            res.send("Error!");
+        }
 
+    })
+});
 
 // var bodyParser = require('body-parser')
 // router.use(bodyParser({uploadDir:'./uploads'}));
