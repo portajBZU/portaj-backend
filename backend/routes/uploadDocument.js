@@ -24,12 +24,12 @@ router.use(morgan('dev'));
 router.post('/', async (req, res) => {
     try {
  
-        if(!req.files) {
+    /*    if(!req.files) {
             res.send({
                 status: false,
                 message: 'No file selected'
             });
-        } else {
+        } else */{
             //Use the name of the input field to retrieve the uploaded file
             let document = req.files.document;
             //Use the mv() method to place the file in uploads directory 

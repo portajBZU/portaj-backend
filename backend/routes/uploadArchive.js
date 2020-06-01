@@ -22,7 +22,7 @@ router.use(morgan('dev'));
 
 router.post('/', async (req, res) => {
     try {
- 
+
         if(!req.files) {
             res.send({
                 status: false,
@@ -34,13 +34,14 @@ router.post('/', async (req, res) => {
             //Use the mv() method to place the file in uploads directory 
             var fullFilePath="./uploads/" + new Date().getFullYear()+"/"+new Date().getTime()+"_"+graduationDocument.name;
             graduationDocument.mv(fullFilePath);
-          
+
+            console.log(fullFilePath);
         
             //Convert uploaded file to Text
             var textract = require('textract');
             textract.fromFileWithPath(fullFilePath, function( error, text ) 
             { 
-                // console.log(text);
+                 console.log(error);
                 var body=req.body;
                 var archiveTitle =body.archiveTitle;
                 var archiveType=body.archiveType;

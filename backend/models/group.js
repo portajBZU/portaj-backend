@@ -13,12 +13,7 @@ var GroupSchema = new Schema({
     supervisor: {
         type: String,
         required: true,
-    },
-    doneDocs: [{
-        type: Schema.Types.ObjectID,
-        required: true,
-        ref: "DocList "
-    }]
+    }
 
 });
 

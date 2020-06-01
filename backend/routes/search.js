@@ -7,9 +7,10 @@ router.get('/:key',function(req,res,next){
     var key = body.key;
     //full text search for archives table
     archives.find({$text: {$search:key}},function(err,result){
-    if (err) throw err;
-    res.send(result);
-   });
+        console.log(key)
+        if (err) throw err;
+        res.send(result);
+    });
 
 //regex search on all the columns in archives table 
 // archives.find({$or:[
