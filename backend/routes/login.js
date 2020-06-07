@@ -63,12 +63,18 @@ router.post('/',
      }
 );
 
-router.get("/user", auth, async (req, res) => {
-    try {
-        const user = await User.findById(req.user.id);
-        res.json(user);
-    } catch (e) {
-        res.send({ message: "Error in Fetching user" });
-    }
+router.get("/:id", async (req, res) => {
+    // Retrieve the tag from our URL path
+    var id = req.params.id;
+
+    let articles = await User.find({idStudent: id},function(err,result){
+        console.log(id)
+        if (err) throw err;
+        res.send(result);
+    });
+
+    res.render('tag', {
+        articles: articles
+    });
 });
 module.exports=router;

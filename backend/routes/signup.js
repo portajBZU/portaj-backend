@@ -9,11 +9,14 @@ router.post('/',
     [
         check("idStudent", "Please Enter a Valid StudentID").not().isEmpty(),
         check("name", "Please enter a valid Name").not().isEmpty(),
-        check("password", "Please enter a valid password").isLength({min: 6})
+        check("password", "Please enter a valid password").isLength({min: 6}),
+        check("email", "Please enter a valid email").not().isEmpty(),
+        check("needPartners", "Please select an option").not().isEmpty()
     ],
     async (req,res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+        console.log(errors)
         return res.status(400).json({
             errors: errors.array()
         });
@@ -21,7 +24,12 @@ router.post('/',
     const {
         idStudent,
         name,
-        password
+        password,
+        email,
+        needPartners,
+        details,
+        partner,
+        partnerId
     } = req.body;
     try {
         let user = await User.findOne({
@@ -36,7 +44,12 @@ router.post('/',
         user = new User({
             idStudent,
             name,
-            password
+            password,
+            email,
+            needPartners,
+            details,
+            partner,
+            partnerId
         });
 
         const salt = await bcrypt.genSalt(10);
@@ -66,6 +79,15 @@ router.post('/',
     }
 }
 );
+router.get('/', (req, res, next) => {
+    User.find((err, docs) => {
+        if(!err) {
+            res.send(docs)
+            console.log(docs)
+        } else {
+            res.send("Error!");
+        }
 
-
+    })
+});
 module.exports=router;
